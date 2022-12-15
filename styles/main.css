@@ -9,4 +9,77 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #005aa7, #fffde4);
+  font-family: "Times New Roman", Times, serif;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: white;
+  width: 400px;
+
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+}
+
+.display {
+  background-color: black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  /* margin-left: auto; */
+  width: 400px;
+}
+
+h1 {
+  color: white;
+  margin-left: auto;
+  padding: 0 20px;
+}
+
+.input {
+  display: grid;
+  gap: 15px;
+  padding: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  border: none;
+  border-radius: 3px;
+  font-size: 20px;
+}
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+.operator {
+  background-color: darkgray;
+}
+
+.equals {
+  background-color: #66ace9;
+  grid-column: 4;
+  grid-row: 2/ 6;
+  height: auto;
+}
+
+#clear-btn {
+  background-color: rgb(236, 152, 152);
+  grid-row: 5;
+  grid-column: 3/ 4;
+}
+
+.decimal {
+  grid-column: 2;
+  grid-row: 5;
 }
