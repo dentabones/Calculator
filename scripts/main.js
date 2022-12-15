@@ -47,6 +47,7 @@ const equals = function () {
 
 const displayClick1 = numberButtons.forEach((button) =>
   button.addEventListener("click", function () {
+    //Able to enter second number in once first number and operator have been entered
     if (numberStored1.length !== 0 && operatorStored !== undefined) {
       numberStored2.push(Number(button.value));
       numB = Number(numberStored2.join(""));
@@ -59,12 +60,14 @@ const displayClick1 = numberButtons.forEach((button) =>
       display.textContent = numA;
       Number(numA);
     }
+    //Enter first nubmer as long as operator is undefined
     // display.textContent = button.value;
   })
 );
 
 operateButtons.forEach((button) =>
   button.addEventListener("click", function () {
+    //will return out of function if no numbers have been entered
     if (numberStored1.length === 0 && numberStored2.length === 0) {
       return;
     }
