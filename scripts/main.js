@@ -4,6 +4,8 @@ const numberButtons = document.querySelectorAll(".number");
 const operateButtons = document.querySelectorAll(".operator");
 const clearButton = document.getElementById("clear-btn");
 const display = document.querySelector("h1");
+const equalsButton = document.querySelector(".equals");
+
 let numberStored1;
 let numberStored2;
 let operatorStored;
@@ -23,10 +25,13 @@ const operate = function (operation, num1, num2) {
 const displayClick1 = numberButtons.forEach((button) =>
   button.addEventListener("click", function () {
     display.textContent = button.value;
-    display.innerHTML = button.value;
-    numberStored1 = button.value;
-    console.log(numberStored1);
-    console.log(Number.isInteger(numberStored1));
+
+    if (numberStored1 !== undefined) {
+      numberStored2 = Number(button.value);
+      display.textContent = numberStored1 + operatorStored + numberStored2;
+    } else {
+      numberStored1 = Number(button.value);
+    }
   })
 );
 
@@ -50,4 +55,19 @@ operateButtons.forEach((button) =>
 
 clearButton.addEventListener("click", function () {
   display.innerHTML = "0";
+  numberStored1 = undefined;
+  numberStored2 = undefined;
+  operatorStored = "";
+});
+
+equalsButton.addEventListener("click", function () {
+  if (operatorStored === "+") {
+    operate(addNum, numberStored1, numberStored2);
+  } else if (operate === "-") {
+    operate(subtractNum, numberStored1, numberStored2);
+  } else if (operate === "*") {
+    operate(multiplyNum, numberStored1, numberStored2);
+  } else if (operate === "/") {
+    operate(divideNum, numberStored1, numberStored2);
+  }
 });
