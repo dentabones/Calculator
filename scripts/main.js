@@ -10,6 +10,7 @@ let numberStored1 = [];
 let numberStored2 = [];
 let numA;
 let numB;
+let numFinal = 0;
 let operatorStored;
 
 const addNum = (num1, num2) => num1 + num2;
@@ -28,15 +29,15 @@ const displayClick1 = numberButtons.forEach((button) =>
   button.addEventListener("click", function () {
     if (numberStored1.length !== 0 && operatorStored !== undefined) {
       numberStored2.push(Number(button.value));
-      numB = numberStored2.join("");
-      Number(numB);
+      numB = Number(numberStored2.join(""));
+
       display.textContent = numA + operatorStored + numB;
+      Number(numB);
     } else if (operatorStored === undefined) {
       numberStored1.push(Number(button.value));
-      numA = numberStored1.join("");
-      Number(numA);
-
+      numA = Number(numberStored1.join(""));
       display.textContent = numA;
+      Number(numA);
     }
     // display.textContent = button.value;
   })
@@ -69,12 +70,19 @@ clearButton.addEventListener("click", function () {
 
 equalsButton.addEventListener("click", function () {
   if (operatorStored === "+") {
-    console.log(operate(addNum, numberStored1, numberStored2));
-  } else if (operate === "-") {
-    operate(subtractNum, numberStored1, numberStored2);
-  } else if (operate === "*") {
-    operate(multiplyNum, numberStored1, numberStored2);
-  } else if (operate === "/") {
-    operate(divideNum, numberStored1, numberStored2);
+    numFinal = operate(addNum, numA, numB);
+    display.textContent = numFinal;
+  } else if (operatorStored === "-") {
+    numFinal = operate(subtractNum, numA, numB);
+    display.textContent = numFinal;
+  } else if (operatorStored === "*") {
+    numFinal = operate(multiplyNum, numA, numB);
+    display.textContent = numFinal;
+  } else if (operatorStored === "/") {
+    numFinal = operate(divideNum, numA, numB);
+    display.textContent = numFinal;
   }
+
+  numA = numFinal;
+  numberStored2 = [];
 });

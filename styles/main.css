@@ -35,6 +35,7 @@ h1 {
   color: white;
   margin-left: auto;
   padding: 0 20px;
+  overflow-x: auto;
 }
 
 .input {
