@@ -13,6 +13,8 @@ let numB;
 let numFinal = 0;
 let operatorStored;
 
+console.table(numberStored1, numberStored2, numA, numB);
+
 const addNum = (num1, num2) => num1 + num2;
 
 const subtractNum = (num1, num2) => num1 - num2;
@@ -26,6 +28,10 @@ const operate = function (operation, num1, num2) {
 };
 
 const equals = function () {
+  if (numberStored1.length === 0 && numberStored2.length === 0 && numB === 0) {
+    clear();
+    return;
+  }
   if (operatorStored === "+") {
     numFinal = operate(addNum, numA, numB);
     display.textContent = numFinal;
@@ -39,13 +45,23 @@ const equals = function () {
     numFinal = operate(divideNum, numA, numB);
     display.textContent = numFinal;
   }
-
+  console.log(numberStored1, numberStored2, numA, numB);
   numA = numFinal;
   numberStored1 = [numA];
   numberStored2 = [];
 };
 
-const displayClick1 = numberButtons.forEach((button) =>
+const clear = function () {
+  display.innerHTML = "0";
+  numberStored1 = [];
+  numberStored2 = [];
+  numA = 0;
+  numB = 0;
+  numFinal = 0;
+  operatorStored = undefined;
+};
+
+numberButtons.forEach((button) =>
   button.addEventListener("click", function () {
     //Able to enter second number in once first number and operator have been entered
     if (numberStored1.length !== 0 && operatorStored !== undefined) {
@@ -88,13 +104,6 @@ operateButtons.forEach((button) =>
   })
 );
 
-clearButton.addEventListener("click", function () {
-  display.innerHTML = "0";
-  numberStored1 = [];
-  numberStored2 = [];
-  numA = 0;
-  numB = 0;
-  operatorStored = undefined;
-});
+clearButton.addEventListener("click", clear);
 
 equalsButton.addEventListener("click", equals);
