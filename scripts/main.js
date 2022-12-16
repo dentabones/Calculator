@@ -47,6 +47,7 @@ const equals = function () {
   }
   console.log(numberStored1, numberStored2, numA, numB);
   numA = numFinal;
+  operatorStored = undefined;
   numberStored1 = [numA];
   numberStored2 = [];
 };
