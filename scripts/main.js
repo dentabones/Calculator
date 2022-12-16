@@ -45,7 +45,7 @@ const equals = function () {
     numFinal = operate(divideNum, numA, numB);
     display.textContent = numFinal;
   }
-  console.log(numberStored1, numberStored2, numA, numB);
+
   numA = numFinal;
   operatorStored = undefined;
   numberStored1 = [numA];
@@ -104,7 +104,7 @@ operateButtons.forEach((button) =>
         operatorStored = button.value;
         display.textContent = numA + " " + operatorStored;
       }
-    } else if (operatorStored !== undefined) {
+    } else if (operatorStored !== undefined && numberStored2.length !== 0) {
       equals();
       if (button.value === "+") {
         operatorStored = button.value;
