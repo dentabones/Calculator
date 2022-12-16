@@ -88,18 +88,36 @@ operateButtons.forEach((button) =>
       return;
     }
 
-    if (button.value === "+") {
-      operatorStored = button.value;
-      display.textContent = numA + " " + operatorStored;
-    } else if (button.value === "-") {
-      operatorStored = button.value;
-      display.textContent = numA + " " + operatorStored;
-    } else if (button.value === "*") {
-      operatorStored = button.value;
-      display.textContent = numA + " " + operatorStored;
-    } else if (button.value === "/") {
-      operatorStored = button.value;
-      display.textContent = numA + " " + operatorStored;
+    //added coniditional for when another operator is selected, it will compute before it adds the new operator in
+    if (operatorStored === undefined) {
+      if (button.value === "+") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "-") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "*") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "/") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      }
+    } else if (operatorStored !== undefined) {
+      equals();
+      if (button.value === "+") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "-") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "*") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      } else if (button.value === "/") {
+        operatorStored = button.value;
+        display.textContent = numA + " " + operatorStored;
+      }
     }
   })
 );
